@@ -1,4 +1,4 @@
-use std::{io::stdin, os::windows};
+use std::io::stdin;
 #[derive(Debug)]
 struct Rectangle {
     height: u32,
@@ -6,10 +6,10 @@ struct Rectangle {
 }
 
 fn main() {
-    //let r = rectangle();
+    let r = rectangle();
     let r2 = Rectangle::create(10, 5);
     let r3 = Rectangle::create(11, 6);
-    //println!("The area of rectangle {}x{} is: {}", r.height, r.width, r.area());
+    println!("The area of rectangle {}x{} is: {}", r.height, r.width, r.area());
     println!("Can r2 hold r3? Answer: {} ", r2.can_hold(&r3));
     println!("Can r3 hold r2? Answer: {} ", r3.can_hold(&r2));
     // println!("{:#?}", r);
