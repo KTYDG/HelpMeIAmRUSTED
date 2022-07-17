@@ -2,10 +2,28 @@ struct Point<T, K> {
     x: T,
     y: K,
 }
+
+impl<X1, Y1> Point<X1, Y1> {
+    fn mix<X2, Y2>(self, other: Point<X2, Y2>) -> Point<X1, Y2> {
+        Point {
+            x: self.x,
+            y: other.y,
+        }
+    }
+}
 fn main() {
     test_non_generic();
     test_generic();
     struct_generic();
+    mix_them();
+}
+
+fn mix_them() {
+    println!();
+    let f = Point { x: 1, y: 2 };
+    let t = Point { x: "x: 1", y: "y: 2" };
+    let s = f.mix(t);
+    println!("Mixed: {} {}", s.x, s.y);
 }
 
 fn struct_generic() {
