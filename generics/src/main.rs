@@ -1,6 +1,19 @@
+struct Point<T, K> {
+    x: T,
+    y: K,
+}
 fn main() {
     test_non_generic();
     test_generic();
+    struct_generic();
+}
+
+fn struct_generic() {
+    let f = Point { x: 1, y: 2 };
+    let s = Point { x: 1.1, y: 2.1 };
+    let t = Point { x: "x: 1", y: "y: 2" };
+    let n = Point {x: 1.1, y: "y: 2.0"};
+    println!("F: {} {}\nS: {} {}\nT: {} {}\nN: {} {}", f.x, f.y, s.x, s.y, t.x, t.y, n.x, n.y);
 }
 
 fn test_generic() {
