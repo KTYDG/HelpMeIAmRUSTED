@@ -23,7 +23,7 @@ fn mix_them() {
     let f = Point { x: 1, y: 2 };
     let t = Point { x: "x: 1", y: "y: 2" };
     let s = f.mix(t);
-    println!("Mixed: {} {}", s.x, s.y);
+    println!("Mixed: {} {}", s.x, s.y); 
 }
 
 fn struct_generic() {
@@ -36,17 +36,17 @@ fn struct_generic() {
 
 fn test_generic() {
     let number_list = vec![34, 50, 25, 100, 65];
-    let result = largest(&number_list);
+    let result = *largest(&number_list);
     println!("The largest number is {}", result);
-    assert_eq!(*result, 100);
+    assert_eq!(result, 100);
 
     let char_list = vec!['y', 'm', 'a', 'q'];
-    let result = largest(&char_list);
+    let result = *largest(&char_list);
     println!("The largest char is {}", result);
-    assert_eq!(*result, 'y');
+    assert_eq!(result, 'y');
 }
 
-fn largest<T: std::cmp::PartialOrd>(list: &[T]) -> &T {
+fn largest<T: PartialOrd>(list: &[T]) -> &T {
     let mut largest = &list[0];
     for i in list {
         if i > largest {
